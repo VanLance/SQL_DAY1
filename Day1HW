@@ -1,0 +1,59 @@
+--Question 1 answer: 2, Nick and Daryl
+SELECT last_name, first_name
+FROM actor
+WHERE last_name LIKE 'Wahlberg';
+
+--Question 2 answer: 5607
+SELECT amount, customer_id
+FROM payment
+WHERE amount BETWEEN 3.99 AND 5.99;
+
+--Question 3 answer: there are 72 films with 8 copies
+SELECT COUNT(film_id), film_id
+FROM inventory
+GROUP BY film_id
+ORDER BY COUNT(film_id) DESC;
+
+--Question 4 answer:William-0, Williams-1, Willis -1, Williamson-1
+SELECT last_name, first_name
+FROM customer
+WHERE last_name LIKE 'Will%';
+
+--Question 5 answer:staff_Id 1
+SELECT staff_id, COUNT(rental_id)
+FROM rental
+GROUP BY staff_id
+ORDER BY COUNT(rental_id) DESC;
+
+--Question 6 answer: 603
+SELECT district
+FROM address;
+
+--Question 7 answer: film_id 508, 15 actors
+SELECT film_id, COUNT(actor_id)
+FROM film_actor
+GROUP BY film_id
+ORDER BY COUNT(actor_id) DESC;
+
+--Question 8 answer:13
+SELECT store_id,last_name
+FROM customer
+WHERE last_name LIKE '%es'
+ORDER BY store_id;
+ 
+--Question 9 answer: 3
+SELECT COUNT(rental_id),amount
+FROM payment
+WHERE customer_id BETWEEN 380 and 430
+GROUP BY amount HAVING COUNT(rental_id) > 250;
+
+--Question 10 answer:5 ratings and most PG-13 movies (223)
+SELECT rating, COUNT(film_id)
+FROM film
+GROUP BY rating
+ORDER BY COUNT(film_id) DESC;
+
+
+
+
+
